@@ -1,4 +1,4 @@
 module.exports = {
-    DB_URI: "mongodb+srv://abooki:abooki@cluster0-gnqx6.mongodb.net/interview?retryWrites=true"
-    // DB_URI: "mongodb+srv://abooki:abooki@cluster0-gnqx6.mongodb.net/interview"
+    DB_URI: "mongodb+srv://abooki:abooki@cluster0-gnqx6.mongodb.net/interview?retryWrites=true",
+    JWT_KEY: "secret"
 };
