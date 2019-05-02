@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dbURI = require("./config/keys").DB_URI;
 const users = require("./routes/api/users");
+const movies = require("./routes/api/movies");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 
@@ -30,6 +31,7 @@ app.use(bodyParser.json());
 
 // setup routes
 app.use("/api/users", users);
+app.use("/api/movies", movies);
 
 const port = process.env.PORT || 7090;
 
