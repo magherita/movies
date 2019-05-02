@@ -6,6 +6,8 @@ const passport = require("passport");
 const router = express.Router();
 const User = require("../../models/User");
 const keys = require("../../config/keys");
+const validateRegisterInput = require("../../validation/register");
+const validateLoginInput = require("../../validation/login");
 
 // @route GET api/users/test
 // @desc tests users route
@@ -18,6 +20,16 @@ router.get("/test", (req, res) => res.json({
 // @desc register users route
 // @access public
 router.post("/register", (req, res) => {
+    // validate form input
+    const {
+        errors,
+        isValid
+    } = validateRegisterInput(req.body);
+
+    if (!isValid) {
+        return res.status(400).json(errors);
+    }
+
     // check if email already registered
     User
         .findOne({
@@ -25,11 +37,10 @@ router.post("/register", (req, res) => {
         })
         .then(user => {
             if (user) {
+                errors.email = "Email already exists";
                 return res
                     .status(400)
-                    .json({
-                        email: "Email already exists"
-                    });
+                    .json(errors);
             }
             // get email profile avatar
             const avatar = gravatar.url(req.body.email, {
@@ -63,8 +74,18 @@ router.post("/register", (req, res) => {
 // @desc login users route
 // @access public
 router.post("/login", (req, res) => {
-    let email = req.body.email;
-    let password = req.body.password;
+    // validate form input
+    const {
+        errors,
+        isValid
+    } = validateLoginInput(req.body);
+
+    if (!isValid) {
+        return res.status(400).json(errors);
+    }
+
+    const email = req.body.email;
+    const password = req.body.password;
 
     // search user with email
     User
@@ -73,9 +94,8 @@ router.post("/login", (req, res) => {
         })
         .then(user => {
             if (!user) {
-                return res.status(404).json({
-                    email: "User not found"
-                });
+                errors.email = "User not found";
+                return res.status(404).json(errors);
             }
             // compare passwords
             bcryptjs
@@ -104,11 +124,10 @@ router.post("/login", (req, res) => {
                             }
                         );
                     } else {
+                        errors.password = "Password incorrect";
                         return res
                             .status(400)
-                            .json({
-                                password: "Password incorrect"
-                            });
+                            .json(errors);
                     }
                 })
         })
