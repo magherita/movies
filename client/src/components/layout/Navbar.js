@@ -30,7 +30,7 @@ class Navbar extends Component {
               className="btn btn-link nav-link"
               style={{ color: "white", fontSize: "0.8em" }}
             >
-              {user.name}
+              Hi, {user.name}
             </small>
           </li>
           <li className="nav-item">
