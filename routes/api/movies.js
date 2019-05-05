@@ -5,10 +5,10 @@ const axios = require("axios");
 const keys = require("../../config/keys");
 const isEmpty = require("../../validation/is-empty");
 
-// @route GET api/movies/search
+// @route POST api/movies/search
 // @desc all movies route
 // @access public
-router.get("/search", async (req, res) => {
+router.post("/search", async (req, res) => {
   await axios
     .get(keys.OMDB_API, {
       params: {
@@ -24,7 +24,6 @@ router.get("/search", async (req, res) => {
           movies: "No movies were found"
         });
       }
-      console.log(result);
       return res.status(200).json(result.data);
     })
     .catch(error => {
@@ -34,10 +33,10 @@ router.get("/search", async (req, res) => {
     });
 });
 
-// @route GET api/movies/id
+// @route POST api/movies/id
 // @desc all movies route
 // @access public
-router.get("/id", async (req, res) => {
+router.post("/id", async (req, res) => {
   await axios
     .get(keys.OMDB_API, {
       params: {
@@ -53,7 +52,6 @@ router.get("/id", async (req, res) => {
           movies: "No movies were found"
         });
       }
-      console.log(result.data);
       return res.status(200).json(result.data);
     })
     .catch(error => {

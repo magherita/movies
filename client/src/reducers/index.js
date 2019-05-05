@@ -7,6 +7,6 @@ import dashboardReducer from "./dashboardReducer";
 export default combineReducers({
   auth: authReducer,
   errors: errorReducer,
-  movies: movieReducer,
+  cinema: movieReducer,
   dashboard: dashboardReducer
 });
