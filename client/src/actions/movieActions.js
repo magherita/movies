@@ -24,11 +24,18 @@ export const searchMovies = movieData => dispatch => {
 };
 
 //get movie details
-export const movieDetails = movieData => dispatch => {
+export const movieInfo = movieData => dispatch => {
   axios
     .post("/api/movies/id", movieData)
     .then(res => {
-      dispatch(setMovieDetails(res.data));
+      if (res.data.Response) {
+        dispatch(setMovieDetails(res.data));
+      } else {
+        dispatch({
+          type: GET_ERRORS,
+          payload: res.data
+        });
+      }
     })
     .catch(err => {
       dispatch({

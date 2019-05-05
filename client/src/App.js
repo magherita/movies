@@ -12,9 +12,10 @@ import Footer from "./components/layout/Footer";
 import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
+import MovieGrid from "./components/movies/MovieGrid";
+import MovieDetails from "./components/movies/MovieDetails";
 
 import store from "./store";
-import MovieGrid from "./components/movies/MovieGrid";
 
 // prevent user from being logged out on page refresh
 if (localStorage.jwtToken) {
@@ -46,6 +47,7 @@ class App extends Component {
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/movies" component={MovieGrid} />
+            <Route exact path="/movies-details/:id" component={MovieDetails} />
             <Footer />
           </div>
         </Router>

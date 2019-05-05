@@ -3,8 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import MovieRow from "./MovieRow";
 import MovieSearch from "./MovieSearch";
-import isEmpty from "../../validation/is-empty";
-import { movieDetails, searchMovies } from "../../actions/movieActions";
+import { searchMovies } from "../../actions/movieActions";
 
 class MovieGrid extends Component {
   constructor() {
@@ -22,17 +21,7 @@ class MovieGrid extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  componentDidMount() {
-    if (!isEmpty(this.props.cinema.movie)) {
-      this.props.history.push("/movie-details");
-    }
-  }
-
   componentWillReceiveProps(nextProps) {
-    if (!isEmpty(this.props.cinema.movie)) {
-      this.props.history.push("/movie-details");
-    }
-
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
     }
@@ -97,7 +86,6 @@ class MovieGrid extends Component {
 
 MovieGrid.propTypes = {
   searchMovies: PropTypes.func.isRequired,
-  movieDetails: PropTypes.func.isRequired,
   cinema: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 };
@@ -109,5 +97,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { searchMovies, movieDetails }
+  { searchMovies }
 )(MovieGrid);
