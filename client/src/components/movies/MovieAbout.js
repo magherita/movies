@@ -18,8 +18,8 @@ const MovieAbout = ({
   return (
     <div className="form-group">
       {/* Plot */}
-      <div className="row d-flex align-items-stretch">
-        <div className="col-md-12 d-flex align-items-stretch">
+      <div className="row">
+        <div className="col-md-12">
           <div className="panel panel-default">
             <div className="panel-heading">
               <h3 className="panel-title">Plot</h3>
@@ -29,8 +29,8 @@ const MovieAbout = ({
         </div>
       </div>
       {/* Actors */}
-      <div className="row d-flex align-items-stretch">
-        <div className="col-md-12 d-flex align-items-stretch">
+      <div className="row">
+        <div className="col-md-12">
           <div className="panel panel-default">
             <div className="panel-heading">
               <h3 className="panel-title">Actors</h3>
@@ -40,8 +40,8 @@ const MovieAbout = ({
         </div>
       </div>
       {/* Directors */}
-      <div className="row d-flex align-items-stretch">
-        <div className="col-md-12 d-flex align-items-stretch">
+      <div className="row d-flex">
+        <div className="col-md-12">
           <div className="panel panel-default">
             <div className="panel-heading">
               <h3 className="panel-title">Directors</h3>
@@ -51,19 +51,8 @@ const MovieAbout = ({
         </div>
       </div>
       {/* Writers */}
-      <div className="row d-flex align-items-stretch">
-        <div className="col-md-12 d-flex align-items-stretch">
-          <div className="panel panel-default">
-            <div className="panel-heading">
-              <h3 className="panel-title">Writers</h3>
-            </div>
-            <div className="panel-body">{writer}</div>
-          </div>
-        </div>
-      </div>
-      {/* Writers */}
-      <div className="row d-flex align-items-stretch">
-        <div className="col-md-12 d-flex align-items-stretch">
+      <div className="row">
+        <div className="col-md-12">
           <div className="panel panel-default">
             <div className="panel-heading">
               <h3 className="panel-title">Writers</h3>
@@ -73,49 +62,39 @@ const MovieAbout = ({
         </div>
       </div>
       {/* Miscellaneous */}
-      <div className="row d-flex align-items-stretch">
-        <div className="col-md-12 d-flex align-items-stretch">
+      <div className="row">
+        <div className="col-md-12">
           <div className="panel panel-default">
             <div className="panel-heading">
               <h3 className="panel-title">Miscellaneous</h3>
             </div>
             <div className="panel-body">
-              <div className="row d-flex align-items-stretch">
-                <div className="col-md-6 d-flex align-items-stretch">
-                  <p>
-                    <strong>Cinema:</strong>
-                    {released}
-                  </p>
-                  <p>
-                    <strong>DVD:</strong>
-                    {dvd}
-                  </p>
-                  <p>
-                    <strong>Box Office:</strong>
-                    {boxOffice}
-                  </p>
-                  <p>
-                    <strong>Awards:</strong>
-                    {awards}
-                  </p>
+              <div className="row">
+                <div className="col-md-12">
+                  <strong>Cinema:</strong> {released}
                 </div>
-                <div className="col-md-6 d-flex align-items-stretch">
-                  <p>
-                    <strong>Language:</strong>
-                    {language}
-                  </p>
-                  <p>
-                    <strong>Country:</strong>
-                    {country}
-                  </p>
-                  <p>
-                    <strong>Production:</strong>
-                    {production}
-                  </p>
-                  <p>
-                    <strong>Website:</strong>
-                    {website}
-                  </p>
+                <div className="col-md-12">
+                  <strong>DVD:</strong> {dvd}
+                </div>
+                <div className="col-md-12">
+                  <strong>Box Office:</strong> {boxOffice}
+                </div>
+                <div className="col-md-12">
+                  <strong>Awards:</strong> {awards}
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-md-12">
+                  <strong>Language:</strong> {language}
+                </div>
+                <div className="col-md-12">
+                  <strong>Country:</strong> {country}
+                </div>
+                <div className="col-md-12">
+                  <strong>Production:</strong> {production}
+                </div>
+                <div className="col-md-12">
+                  <strong>Website:</strong> {website}
                 </div>
               </div>
             </div>
@@ -127,18 +106,18 @@ const MovieAbout = ({
 };
 
 MovieAbout.propTypes = {
-  plot: PropTypes.string.isRequired,
-  released: PropTypes.string.isRequired,
-  dvd: PropTypes.string.isRequired,
-  language: PropTypes.string.isRequired,
-  country: PropTypes.string.isRequired,
-  boxOffice: PropTypes.string.isRequired,
-  actors: PropTypes.string.isRequired,
-  directors: PropTypes.string.isRequired,
-  writer: PropTypes.string.isRequired,
-  production: PropTypes.string.isRequired,
-  website: PropTypes.string.isRequired,
-  awards: PropTypes.string.isRequired
+  plot: PropTypes.string,
+  released: PropTypes.string,
+  dvd: PropTypes.string,
+  language: PropTypes.string,
+  country: PropTypes.string,
+  boxOffice: PropTypes.string,
+  actors: PropTypes.string,
+  directors: PropTypes.string,
+  writer: PropTypes.string,
+  production: PropTypes.string,
+  website: PropTypes.string,
+  awards: PropTypes.string
 };
 
 export default MovieAbout;

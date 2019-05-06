@@ -4,7 +4,7 @@ import MovieCard from "./MovieCard";
 
 const MovieRow = ({ row }) => {
   return (
-    <div className="row d-flex align-items-stretch">
+    <div className="row">
       {row.map(movie => (
         <div key={movie.imdbID} className="col-md-3 d-flex align-items-stretch">
           <MovieCard

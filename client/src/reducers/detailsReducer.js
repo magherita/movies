@@ -1,17 +1,17 @@
-import { SET_SEARCHED_MOVIES } from "../actions/types";
+import { SET_MOVIE_DETAILS } from "../actions/types";
 
 const initialState = {
   isLoaded: false,
-  movies: []
+  movie: {}
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case SET_SEARCHED_MOVIES:
+    case SET_MOVIE_DETAILS:
       return {
         ...state,
         isLoaded: true,
-        movies: action.payload
+        movie: action.payload
       };
     default:
       return state;
